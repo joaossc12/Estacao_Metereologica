@@ -41,11 +41,11 @@ Este é o mapeamento de pinos utilizado no projeto. As atribuições podem ser a
 | **GP1** | I2C0 SCL | Sensor AHT20 | `i2c0` |
 | **GP2** | I2C1 SDA | Sensor BMP280 | `i2c1` |
 | **GP3** | I2C1 SCL | Sensor BMP280 | `i2c1` |
-| **GP28** | Saída de Dados para LEDs | Matriz WS2812B | `PIO` |
-| **GP15** | Saída PWM para Alerta Sonoro | Buzzer | `PWM` |
-| **GP14** | Entrada - Botão A (Alterna Alarme)| Botão A | `GPIO` |
-| **GP13** | Entrada - Botão B (Modo BOOTSEL) | Botão B | `GPIO` |
-| **LED** | LED On-board (Status Wi-Fi/Alarme)| LED da Placa Pico W | `cyw43` |
+| **GP7** | Saída de Dados para LEDs | Matriz WS2812B | `PIO` |
+| **GP21** | Saída PWM para Alerta Sonoro | Buzzer | `PWM` |
+| **GP5** | Entrada - Botão A (Alterna Alarme)| Botão A | `GPIO` |
+| **GP6** | Entrada - Botão B (Modo BOOTSEL) | Botão B | `GPIO` |
+| **GP 12 e 13** | LED RGB| LED da Placa Pico W | `GPIO` |
 
 ---
 
