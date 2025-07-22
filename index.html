@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estação de Monitoramento Meteorológico</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: #3b3b3b; /* Cinza escuro metálico */
+      color: #fff;
+    }
+    header {
+      background: #2c5aa0; /* Azul mais escuro */
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      font-size: 1.5rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+    .subtitle {
+      text-align: center;
+      color: #ccc;
+      margin: 4px 0;
+      font-size: 0.9rem;
+    }
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 0 15px;
+    }
+    /* Configurações em linha, similar aos cards de dados */
+    .config-cards {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+    .config-card {
+      background: #4f4f4f;
+      flex: 1 1 calc(33% - 20px);
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .config-card label {
+      color: #ccc;
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+    }
+    .config-card input {
+      width: 80%;
+      padding: 6px;
+      font-size: 1rem;
+      border-radius: 4px;
+      border: none;
+      text-align: center;
+    }
+    .config-card span {
+      margin-top: 6px;
+      color: #fff;
+      font-size: 1rem;
+    }
+    .botao {
+      font-size: 18px;
+      padding: 8px 20px;
+      margin: 20px auto 0;
+      display: block;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background: #4a90e2;
+      color: #fff;
+    }
+    .cards {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    .card {
+      background: #4f4f4f;
+      display: flex;
+      align-items: center;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+    .card i {
+      font-size: 2.5rem;
+      margin-right: 15px;
+      color: #4a90e2;
+    }
+    .card .info {
+      font-size: 1.2rem;
+    }
+    .charts {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    canvas {
+      background: #4f4f4f;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      padding: 10px;
+    }
+    @media(max-width: 768px) {
+      .config-cards, .cards {
+        flex-direction: column;
+      }
+      .config-card, .card {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>Estação de Monitoramento Meteorológico</header>
+  <div class="subtitle">Ilhéus - BA</div>
+  <div class="subtitle">EmbarcaTech - RESTIC37</div>
+
+  <div class="container">
+
+    <!-- CONFIGURAÇÕES: PRIMEIRO NA PÁGINA -->
+    <section class="config-cards">
+      <div class="config-card">
+        <label>Temp. Max. (°C)</label>
+        <input type="number" id="input-maxTemp" min="-50" max="100" step="0.1">
+        <span id="label-maxTemp">--</span>
+      </div>
+      <div class="config-card">
+        <label>Umid. Min. (%)</label>
+        <input type="number" id="input-minHum" min="0" max="100" step="0.1">
+        <span id="label-minHum">--</span>
+      </div>
+      <div class="config-card">
+        <label>Calibração Temp (°C)</label>
+        <input type="number" id="input-calTemp" min="-10" max="10" step="0.1">
+        <span id="label-calTemp">--</span>
+      </div>
+      <button onclick="updateConfig()" class="botao">Atualizar Config</button>
+    </section>
+
+    <!-- DADOS MEDIDOS -->
+    <section class="cards">
+      <div class="card">
+        <i class="fas fa-thermometer-half"></i>
+        <div class="info">Temperatura: <span id="temp-ath">--</span> °C</div>
+      </div>
+      <div class="card">
+        <i class="fas fa-tint"></i>
+        <div class="info">Umidade: <span id="umidade-ath">--</span> %</div>
+      </div>
+      <div class="card">
+        <i class="fas fa-tachometer-alt"></i>
+        <div class="info">Pressão: <span id="pressao-bmp">--</span> hPa</div>
+      </div>
+    </section>
+
+    <!-- GRÁFICOS -->
+    <section class="charts">
+      <canvas id="chartTemp" width="400" height="200"></canvas>
+      <canvas id="chartHum" width="400" height="200"></canvas>
+      <canvas id="chartPress" width="400" height="200"></canvas>
+    </section>
+
+  </div>
+
+  <script>
+    // ... seu JS de charts e fetch permanece inalterado ...
+  </script>
+</body>
+</html>
